@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "Design": {
+      "title": "Design",
+      "description": "An interior plant design project including room reference, placed plants, pots, and layout coordinates.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "roomName": { "type": "string" },
+        "roomImage": { "type": "string" },
+        "plants": { "type": "string", "description": "Serialized JSON array of placed plants and pot specifications" },
+        "thumbnail": { "type": "string" },
+        "aiGeneratedImage": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "createdAt", "updatedAt"]
+    },
+    "CustomPlant": {
+      "title": "CustomPlant",
+      "description": "A custom plant variety uploaded by the user or business owner.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "botanicalName": { "type": "string" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "cutoutUrl": { "type": "string" },
+        "defaultHeight": { "type": "number" },
+        "approxWidth": { "type": "number" },
+        "lightRequirements": { "type": "string" },
+        "growthHabit": { "type": "string" },
+        "indoorSuitability": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "category", "imageUrl"]
+    },
+    "CustomPot": {
+      "title": "CustomPot",
+      "description": "A bespoke planter specification with custom dimensions.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "shape": { "type": "string" },
+        "material": { "type": "string" },
+        "color": { "type": "string" },
+        "colorHex": { "type": "string" },
+        "dimensions": { "type": "string", "description": "Serialized JSON dimensions" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "shape", "material", "color"]
+    },
+    "Enquiry": {
+      "title": "Enquiry",
+      "description": "Commercial plant quotation request submitted to ETR Plants.",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "contactNumber": { "type": "string" },
+        "email": { "type": "string" },
+        "projectLocation": { "type": "string" },
+        "projectType": { "type": "string" },
+        "plantRequirements": { "type": "string" },
+        "additionalNotes": { "type": "string" },
+        "plantSchedule": { "type": "string", "description": "Serialized plant schedule items" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["customerName", "contactNumber", "projectLocation", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/designs/{designId}": {
+      "schema": "Design",
+      "description": "Collection of saved interior plant design projects."
+    },
+    "/customPlants/{plantId}": {
+      "schema": "CustomPlant",
+      "description": "Collection of custom plant varieties added to the catalogue."
+    },
+    "/customPots/{potId}": {
+      "schema": "CustomPot",
+      "description": "Collection of custom planter models added to the catalogue."
+    },
+    "/enquiries/{enquiryId}": {
+      "schema": "Enquiry",
+      "description": "Commercial quotation requests and project enquiries."
+    }
+  }
+}

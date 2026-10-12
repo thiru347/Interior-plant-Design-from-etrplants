@@ -1,0 +1,6 @@
+{
+  "name": "ETR Plants - AI Interior Plant Designer",
+  "description": "Professional interior plant design and visualization web application for luxury hotels, commercial offices, and contemporary architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

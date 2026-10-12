@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Connection test document
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    // Interior plant design projects
+    match /designs/{designId} {
+      allow read, write: if true;
+    }
+
+    // Custom plant varieties catalogue
+    match /customPlants/{plantId} {
+      allow read, write: if true;
+    }
+
+    // Custom planters catalogue
+    match /customPots/{potId} {
+      allow read, write: if true;
+    }
+
+    // Commercial quotation requests
+    match /enquiries/{enquiryId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+  }
+}
